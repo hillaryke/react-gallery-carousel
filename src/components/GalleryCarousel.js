@@ -5,10 +5,6 @@ import 'react-gallery-carousel/dist/index.css';
 import imagearr from "../images";
 
 const HeroSlider = () => {
-   // useEffect(() => {
-   //    play();
-   // }, [])
-
    const images = imagearr.map((img) => ({
       src: img,
    }));
