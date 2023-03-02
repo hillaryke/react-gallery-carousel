@@ -1,0 +1,20 @@
+.carousel-container {
+   margin: 0 auto;
+}
+
+.custom-dot-list-style {
+   margin: 0;
+   position: absolute;
+   bottom: 25px;
+   right: 25px;
+}
+
+.carousel-item-padding-40-px {
+   padding: 40px;
+}
+
+@media (min-width: 1024px) {
+   .custom-dot-list-style {
+      bottom: 40px;
+   }
+}
