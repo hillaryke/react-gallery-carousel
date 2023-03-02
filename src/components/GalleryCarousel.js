@@ -17,11 +17,17 @@ const HeroSlider = () => {
 
    const isLeftOrRightScreenClicked = (event) => {
       if (event.clientX < window.innerWidth / 2) {
-         // Left side of screen is clicked
-         console.log('Left side of screen clicked');
+         return 'left';
       } else {
-         // Right side of screen is clicked
-         console.log('Right side of screen clicked');
+         return 'right';
+      }
+   };
+
+   const slideImage = (event) => {
+      if (isLeftOrRightScreenClicked(event) === 'left') {
+         carouselRef.current.goLeft();
+         } else {
+         carouselRef.current.goRight();
       }
    }
 
@@ -31,15 +37,13 @@ const HeroSlider = () => {
           {/*   <div onClick={() => {console.log(carouselRef.current); console.log("LEFT DIV CLICK")}} className="w-1/2 bg-emerald-900 h-full"></div>*/}
           {/*   <div onClick={() => {carouselRef.current.goRight(); console.log("LEFT DIV CLICK")}} className="w-1/2 bg-blue-800 h-full"></div>*/}
           {/*</div>*/}
-          <button onClick={() => carouselRef.current.goLeft()} className="p-8 hover:cursor-crosshair bg-teal-500">Left</button>
 
-          <div className="h-full w-full" onClick={isLeftOrRightScreenClicked}>
+          <div className="h-full w-full" onClick={slideImage}>
              <Carousel
-                 onTap={() => {}}
                  ref={carouselRef}
                  isMaximized={true}
                  canAutoPlay={true}
-                 autoPlayInterval={2000}
+                 autoPlayInterval={5000}
                  isAutoPlaying={true}
                  hasRightButton={false}
                  hasLeftButton={false}
@@ -50,9 +54,9 @@ const HeroSlider = () => {
                  hasThumbnails={false}
                  objectFit={'cover'}
                  objectFitAtMax={'cover'}
-                 images={images} style={{ height: 500, width: 800 }} />
+                 images={images} style={{ height: 500, width: 800 }}/>
           </div>
-          </div>
+       </div>
 
 
    );
