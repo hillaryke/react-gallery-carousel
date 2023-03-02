@@ -34,7 +34,9 @@ const HeroSlider = () => {
           {/*   <div onClick={() => {carouselRef.current.goRight(); console.log("LEFT DIV CLICK")}} className="w-1/2 bg-blue-800 h-full"></div>*/}
           {/*</div>*/}
 
-          <div className="h-full w-full" onClick={slideImage}>
+          <div className="h-full w-full"
+               onTouchStart={slideImage}
+               onClick={slideImage}>
              <Carousel
                  ref={carouselRef}
                  isMaximized={true}
