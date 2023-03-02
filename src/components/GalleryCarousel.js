@@ -11,7 +11,7 @@ const HeroSlider = () => {
 
    const carouselRef = React.useRef(null);
 
-   const isLeftOrRightScreenClicked = (event) => {
+   const isClickLeftOrRight = (event) => {
       if (event.clientX < window.innerWidth / 2) {
          return 'left';
       } else {
@@ -19,11 +19,28 @@ const HeroSlider = () => {
       }
    };
 
-   const slideImage = (event) => {
-      if (isLeftOrRightScreenClicked(event) === 'left') {
+   const slideImage = (e) => {
+      if (isClickLeftOrRight(e) === 'left' ||
+          isTouchLeftOrRight(e)  === 'left') {
          carouselRef.current.goLeft();
          } else {
          carouselRef.current.goRight();
+      }
+   }
+
+   const isTouchLeftOrRight = (e) => {
+      // Get the X coordinate of the touch event
+      if (!e.touches) return null;
+      var touchX = e.touches[0].clientX;
+
+      // Get the width of the screen
+      var screenWidth = window.innerWidth;
+
+      if (touchX < screenWidth / 2) {
+         return 'left';
+      }
+      else {
+         return 'right';
       }
    }
 
